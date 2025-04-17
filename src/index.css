@@ -4,5 +4,5 @@ body {
   padding: 0;
   height: 100vh;
   background: radial-gradient(circle at top left, #B4D4FB 0%, #F3F4F7 10%, #F3F4F7 100%);
-  
+  font-size: 14px;
 }
