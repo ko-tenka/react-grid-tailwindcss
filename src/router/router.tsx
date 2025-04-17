@@ -1,8 +1,8 @@
 import { createBrowserRouter } from 'react-router-dom';
 import Layout from '../Layout/Layout';
-import TaskPage from '../pages/TaskPage/TaskPage';
 import RouterErrorFallback from './RouterErrorFallback';
 import GlavList from '../pages/GlavList/GlavList';
+import Manage from '../pages/Manage/Manage';
 
 export const router = createBrowserRouter([
   {
@@ -19,8 +19,9 @@ export const router = createBrowserRouter([
       {
         path: '/work',
         element: (
-            <TaskPage />
-        ),
+            
+          <Manage />
+      ),
         errorElement: <RouterErrorFallback />,
       },
       {

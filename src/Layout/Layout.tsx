@@ -1,4 +1,4 @@
-import Navbar from '../wigetes/Navbar';
+import Navbar from '../wigetes/Navbar/Navbar';
 import { Outlet } from 'react-router-dom';
 import BlockSearch from '../pages/BlockSearch/BlockSearch';
 
