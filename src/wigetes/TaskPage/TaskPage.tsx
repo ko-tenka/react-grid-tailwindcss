@@ -1,40 +1,45 @@
-import { useState } from 'react';
-import { Responsive, WidthProvider, Layouts } from 'react-grid-layout';
+import { Responsive, WidthProvider } from 'react-grid-layout';
 import 'react-grid-layout/css/styles.css';
 import 'react-resizable/css/styles.css';
 
 const ResponsiveGridLayout = WidthProvider(Responsive);
 
-const defaultLayouts: Layouts = {
-  lg: [
-    { i: 'a', x: 0, y: 0, w: 2, h: 2 },
-    { i: 'b', x: 2, y: 0, w: 3, h: 2 },
-    { i: 'c', x: 5, y: 0, w: 2, h: 2 },
-  ]
+type Task = {
+  id: string;
+  title: string;
+  x: number;
+  y: number;
+  w: number;
+  h: number;
 };
 
-export default function TaskPage() {
-  const [layouts, setLayouts] = useState<Layouts>(defaultLayouts);
+type Props = {
+  tasks: Task[];
+  setTasks: (tasks: Task[]) => void;
+};
 
+export default function TaskPage({ tasks }: Props) {
   return (
     <div style={{ width: '100%', height: '100vh' }}>
       <ResponsiveGridLayout
         className="layout"
-        layouts={layouts}
+        layouts={{ lg: tasks.map(task => ({ i: task.id, x: task.x, y: task.y, w: task.w, h: task.h })) }}
         breakpoints={{ lg: 1200 }}
         cols={{ lg: 12 }}
         rowHeight={100}
         isResizable
         isDraggable
-        onLayoutChange={(_, allLayouts) => setLayouts(allLayouts)}
         margin={[10, 10]}
         containerPadding={[10, 10]}
       >
-        <div key="a" style={{ background: '#eee', border: '1px solid #aaa' }}>A</div>
-        <div key="b" style={{ background: '#ddd', border: '1px solid #aaa' }}>B</div>
-        <div key="c" style={{ background: '#ccc', border: '1px solid #aaa' }}>C</div>
+        {tasks.map(task => (
+          <div key={task.id} className='bg-white rounded-lg'>
+            <strong>{task.title}</strong>
+          </div>
+        ))}
       </ResponsiveGridLayout>
     </div>
   );
 }
+
 
