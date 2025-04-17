@@ -1,8 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useState } from "react";
-import { JSX } from 'react';
 
-export default function BlockSearch(): JSX.Element  {
+export default function BlockSearch() {
     const [isOpen, setIsOpen] = useState(false);
     const navigate = useNavigate();
 

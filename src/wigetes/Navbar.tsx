@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { JSX } from 'react';
 
-export default function Navbar(): JSX.Element {
+
+export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="flex flex-row justify-between mt-8 ml-8 mr-8">
